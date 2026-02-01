@@ -11,20 +11,36 @@ while (nextStep !== true) {
         nextStep = true;
     }
 }
-let currentNum = nums[0];
 
-nums.forEach(num => {
-    if (num !== currentNum) {
-        allNums = 'Ні'
+function checkAllNums() {
+    for (let i = 1; i < nums.length; i++) {
+        if (nums[0] !== nums[i]) {
+            return false;
+        }
     }
-})
-
-for (let i = 1; i < nums.length; i++) {
-    if (currentNum === nums[i]) {
-        someNums = 'Так'
-    }
+    return true;
 }
 
+function checkSomeNums() {
+    for (let i = 0; i < nums.length; i++) {
+        for (let j = 0; j < nums.length; j++) {
+            if (i !== j) {
+                if (nums[i] === nums[j]) {
+                    return true;
+                }
+            }
+        }
+    }
+    return false;
+}
+
+if (checkAllNums() === false) {
+    allNums = 'Ні'
+}
+
+if (checkSomeNums() === true) {
+    someNums = 'Так'
+}
 
 alert(`Чи правда, що всі цифри однакові? ${allNums}`);
 alert(`Чи є серед цифр цифри однакові? ${someNums}`);
