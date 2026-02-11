@@ -4,15 +4,15 @@ function calculate(arr) {
     const sortedArr = [];
     let counter = 0;
 
-    for (let i = 0; i < arr.length; i++) {
-        if (typeof arr[i] === "number") {
-            sortedArr.push(arr[i]);
+    arr.forEach(number => {
+        if (typeof number === "number") {
+            sortedArr.push(number);
         }
-    }
+    })
 
-    for (let i = 0; i < sortedArr.length; i++) {
-        counter += sortedArr[i];
-    }
+    sortedArr.forEach(number => {
+        counter += number;
+    })
 
     return counter / sortedArr.length;
 }
