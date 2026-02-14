@@ -1,11 +1,19 @@
-function sumFunction(sum = 0, userNumber = 0) {
-    sum = sum + userNumber;
-    console.log(`Sum: ${sum}`);
-    userNumber = prompt("Enter your number");
+function sumFunction() {
+    let counter = 0;
 
-    if (userNumber === null) return;
+    function inside(num) {
+        return counter += num
+    }
 
-    sumFunction(sum, +userNumber);
+    return inside;
 }
 
-sumFunction()
+const sum =  sumFunction();
+
+console.log(sum(4));
+
+console.log(sum(6));
+
+console.log(sum(10));
+
+console.log(sum(7));
