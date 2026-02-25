@@ -1,0 +1,36 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Montserrat", sans-serif;
+  color: #ffffff;
+}
+
+body {
+  background: #eb1018;
+  background: linear-gradient(118deg, rgb(235, 16, 24) 17%, rgb(11, 13, 11) 64%);
+}
+body main {
+  width: 800px;
+  margin: 2rem auto auto auto;
+  height: 100vh;
+}
+body main .box {
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+  gap: 1rem;
+}
+body main .box .item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(99, 9, 9, 0.27);
+  border-radius: 5px;
+  padding: 17px 10px;
+}
+body main .box .hide {
+  border-radius: 5px;
+  padding: 17px 10px;
+}
+
+/*# sourceMappingURL=styles.css.map */

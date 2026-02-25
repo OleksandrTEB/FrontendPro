@@ -1,0 +1,38 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Montserrat', sans-serif;
+  color: #ffffff;
+}
+
+body {
+  background: #eb1018;
+  background: linear-gradient(118deg, rgba(235, 16, 24, 1) 17%, rgba(11, 13, 11, 1) 64%);
+
+  main {
+    width: 800px;
+    margin: 2rem auto auto auto;
+    height: 100vh;
+
+    .box {
+      display: grid;
+      grid-template-columns: repeat(10, 1fr);
+      gap: 1rem;
+
+      .item {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: rgba(99, 9, 9, 0.27);
+        border-radius: 5px;
+        padding: 17px 10px;
+      }
+
+      .hide {
+        border-radius: 5px;
+        padding: 17px 10px;
+      }
+    }
+  }
+}
