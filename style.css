@@ -1,0 +1,29 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Montserrat", sans-serif;
+}
+
+body main {
+  margin: 2rem;
+}
+body main .input_container {
+  display: flex;
+  flex-direction: row;
+  gap: 5px;
+}
+body main .input_container .warning {
+  display: none;
+  color: #FF0000;
+}
+body main .tasks_container {
+  display: flex;
+  flex-direction: column;
+}
+body main .tasks_container .task_container {
+  display: flex;
+  flex-direction: row;
+}
+
+/*# sourceMappingURL=style.css.map */
