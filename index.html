@@ -6,9 +6,46 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Frontend Pro</title>
-    <link rel="stylesheet" href="./styles.css">
+    <link rel="stylesheet" href="./style.css">
 </head>
 <body>
+
+<main>
+    <form>
+        <h2>We would like to help you</h2>
+
+        <div class="value">
+            <label for="username">
+                <input type="text" id="username" name="username" placeholder="Name">
+                <span class="error error-username" data-show="false">Username is required!</span>
+            </label>
+
+            <label for="message">
+                <textarea id="message" name="message" placeholder="Message" rows="4"></textarea>
+                <span class="error error-message" data-show="false">Message must contain min 5 charsets!</span>
+            </label>
+        </div>
+
+        <div class="how">
+            <h4>HOW TO ANSWER YOU?</h4>
+        </div>
+
+        <div class="contact-info">
+            <label for="phone">
+                <input type="text" id="phone" name="phone" placeholder="Phone number">
+                <span class="error error-phone" data-show="false"></span>
+            </label>
+            <label for="email">
+                <input type="text" id="email" name="email" placeholder="Email">
+                <span class="error error-email" data-show="false"></span>
+            </label>
+        </div>
+
+        <div class="submit-button">
+            <button type="submit">Send message</button>
+        </div>
+    </form>
+</main>
 
 <script src="./script.js"></script>
 </body>
