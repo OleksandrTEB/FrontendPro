@@ -4,3 +4,31 @@
   box-sizing: border-box;
   font-family: 'Montserrat', sans-serif;
 }
+
+html, body {
+  height: 100%;
+}
+
+body {
+  background: #000000;
+  background: linear-gradient(156deg, rgba(0, 0, 0, 1) 16%, rgba(255, 0, 0, 1) 98%);
+
+  main {
+    width: 500px;
+    height: 300px;
+    margin: 3rem auto;
+    background: rgba(255, 255, 255, 0.11);
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .container {
+
+      .timer {
+        color: white;
+        font-size: 6rem;
+      }
+    }
+  }
+}
