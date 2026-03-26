@@ -3,6 +3,44 @@
   padding: 0;
   box-sizing: border-box;
   font-family: "Montserrat", sans-serif;
+  color: #ffffff;
+  font-size: 1.1rem;
+}
+
+body {
+  background-color: #000000;
+}
+body main {
+  margin: 2rem auto;
+  width: 500px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  background-color: rgba(255, 255, 255, 0.16);
+  padding: 1rem;
+  border-radius: 10px;
+}
+body main div {
+  background-color: rgba(255, 255, 255, 0.09);
+  padding: 8px;
+  border-radius: 5px;
+}
+body main button {
+  text-align: center;
+  padding: 8px 16px;
+  background-color: #238636;
+  border: none;
+  border-radius: 5px;
+  font-weight: 500;
+  color: white;
+  width: 100%;
+}
+body main button:hover {
+  cursor: pointer;
+  background-color: #1b662a;
+}
+body main button:active {
+  background-color: #165322;
 }
 
 /*# sourceMappingURL=style.css.map */
