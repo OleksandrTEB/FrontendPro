@@ -1,6 +1,151 @@
+@use 'styles/font/font' as *;
+@use 'styles/global' as *;
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Custom";
+  color: white;
+  border: none;
+  outline: none;
+}
+
+body {
+  @include flex-column;
+  gap: 1rem;
+  background-color: #010409;
+
+  header {
+    @include flex-row;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    background-color: #010409;
+    width: 100%;
+    padding: 1rem;
+    box-shadow: rgb(61, 68, 77) 0px -1px 0px 0px inset;
+  }
+
+  main {
+    @include flex-column;
+
+    .container {
+      @include flex-column;
+      margin: auto;
+      width: 400px;
+      gap: 1rem;
+
+      .button-container {
+        button {
+          @include base-button;
+        }
+      }
+
+      .button-container-add {
+        display: none;
+
+        button {
+          @include base-button;
+        }
+      }
+
+      .status {
+        display: none;
+      }
+
+      .todos-container {
+        @include flex-column;
+        gap: 10px;
+
+        .todo {
+          @include flex-row;
+          justify-content: space-between;
+          background-color: #0d1117;
+          padding: 10px;
+          border-radius: 5px;
+          border: 1px solid rgb(61, 68, 77);
+
+          .events-container {
+            @include flex-row;
+            gap: 10px;
+            align-items: center;
+
+            .completed {
+              label {
+                input {
+                  width: 15px;
+                  height: 15px;
+                }
+              }
+            }
+
+            button {
+              @include base-button(70px, #a62323, #bc2222, #6e1515);
+              min-height: 0;
+              height: 30px;
+              padding: 0;
+            }
+          }
+        }
+      }
+    }
+
+    .modal-window {
+      @include flex-center;
+      display: none;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      position: absolute;
+      background-color: rgba(0, 0, 0, 0.46);
+
+      .modal-container {
+        @include flex-column;
+        width: 400px;
+        background-color: #0d1117;
+        border: 1px solid rgb(61, 68, 77);
+        padding: 10px;
+        border-radius: 5px;
+        gap: 1rem;
+
+        .header {
+          font-size: 1.2rem;
+          text-align: center;
+        }
+
+        form {
+          @include flex-column;
+          gap: 1rem;
+
+          .title {
+            @include flex-column;
+
+            input {
+              @include base-input;
+            }
+          }
+
+          .buttons {
+            @include flex-column;
+            gap: 10px;
+
+            .submit-button {
+              button {
+                @include base-button;
+                min-height: 0;
+              }
+            }
+
+            .cancel-button {
+              button {
+                @include base-button(100%, #a62323, #d12525, #6e1515);
+                min-height: 0;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
 }

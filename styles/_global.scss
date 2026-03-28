@@ -1,0 +1,54 @@
+@mixin base-input {
+  padding: 6px 10px;
+  border-radius: 6px;
+  border: 1px solid #3D444D;
+  height: 33px;
+  background-color: #0d1117;
+  @content;
+
+  &:focus {
+    border: 2px solid rgb(39, 68, 228);
+    padding: 5px 9px;
+    outline: none;
+  }
+}
+
+@mixin base-button($width: 100%, $bg-color: #238636, $bg-hover: #1b662a, $bg-active: #165322) {
+  text-align: center;
+  min-height: 40px;
+  font-size: 14px;
+  padding: 5px 16px;
+  background-color: $bg-color;
+  border: none;
+  border-radius: 5px;
+  font-weight: 500;
+  color: white;
+  width: $width;
+
+  @content;
+  &:hover {
+    cursor: pointer;
+    background-color: $bg-hover;
+  }
+
+  &:active {
+    background-color: $bg-active;
+  }
+}
+
+@mixin flex-row {
+  display: flex;
+  flex-direction: row;
+}
+
+@mixin flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+@mixin flex-center {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
