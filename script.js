@@ -19,7 +19,7 @@ getTodosButton.addEventListener('click', async () => {
 
 async function getTodos() {
     try {
-        const response = await fetch(`${BASE_URL}/todos`);
+        const response = await fetch(`${BASE_URL}/todos?_limit=${limit}`);
 
         const json = await response.json();
 
@@ -37,6 +37,7 @@ async function getTodos() {
             document.querySelector('.button-container-add').style.display = 'block';
         } else {
             status.textContent = "Status: Error!";
+            throw new Error("Error fetching todos.");
         }
     } catch (e) {
         console.error(e);
@@ -45,13 +46,19 @@ async function getTodos() {
 
 async function deleteTodo(id) {
     try {
-        for(let i = 0; i < arrTodos.length; i++) {
-            if (arrTodos[i].id === id) {
-                arrTodos.splice(i, 1);
+        const response = await fetch(`${BASE_URL}/todos?id=${id}`);
 
-                renderTodos(arrTodos);
-                return;
+        if(response.ok) {
+            for(let i = 0; i < arrTodos.length; i++) {
+                if (arrTodos[i].id === id) {
+                    arrTodos.splice(i, 1);
+
+                    renderTodos(arrTodos);
+                    return;
+                }
             }
+        } else {
+            throw new Error("Error deleting todo.");
         }
     } catch (e) {
         console.error(e);
@@ -69,44 +76,39 @@ function renderTodos(arr) {
 
     const fragment = document.createDocumentFragment();
 
-    let i = 0;
-
     arr.forEach((item) => {
-        if(i <= limit) {
-            const todo = document.createElement("div");
-            todo.classList.add("todo");
-            todo.dataset.id = item.id;
-            fragment.appendChild(todo)
+        const todo = document.createElement("div");
+        todo.classList.add("todo");
+        todo.dataset.id = item.id;
+        fragment.appendChild(todo)
 
-            const title = document.createElement("div");
-            title.classList.add("title");
-            title.textContent = item.title;
-            todo.appendChild(title);
+        const title = document.createElement("div");
+        title.classList.add("title");
+        title.textContent = item.title;
+        todo.appendChild(title);
 
-            const eventsContainer = document.createElement('div')
-            eventsContainer.classList.add('events-container');
-            todo.appendChild(eventsContainer);
+        const eventsContainer = document.createElement('div')
+        eventsContainer.classList.add('events-container');
+        todo.appendChild(eventsContainer);
 
-            const divCompleted = document.createElement("div");
-            divCompleted.classList.add("completed");
-            eventsContainer.appendChild(divCompleted);
+        const divCompleted = document.createElement("div");
+        divCompleted.classList.add("completed");
+        eventsContainer.appendChild(divCompleted);
 
-            const label = document.createElement("label");
-            label.for = 'completed';
-            divCompleted.appendChild(label);
+        const label = document.createElement("label");
+        label.for = 'completed';
+        divCompleted.appendChild(label);
 
-            const checkbox = document.createElement("input");
-            checkbox.id = 'completed';
-            checkbox.type = 'checkbox';
-            checkbox.checked = item.completed;
-            label.appendChild(checkbox);
+        const checkbox = document.createElement("input");
+        checkbox.id = 'completed';
+        checkbox.type = 'checkbox';
+        checkbox.checked = item.completed;
+        label.appendChild(checkbox);
 
-            const deleteButton = document.createElement("button");
-            deleteButton.classList.add("delete");
-            deleteButton.textContent = 'Delete';
-            eventsContainer.appendChild(deleteButton);
-        }
-        i++
+        const deleteButton = document.createElement("button");
+        deleteButton.classList.add("delete");
+        deleteButton.textContent = 'Delete';
+        eventsContainer.appendChild(deleteButton);
     })
 
     todosContainer.appendChild(fragment);
